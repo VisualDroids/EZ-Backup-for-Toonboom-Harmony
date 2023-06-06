@@ -28,7 +28,7 @@
   <!-- <a href="#license">License</a> -->
 </p>
 
-![](design/docs/ezbackup.webm)
+![](design/docs/ezbackup.webp)
 
 </div>
 
@@ -42,8 +42,7 @@ It automatically generates a neatly compressed zip file that holds the entire ba
 
 ## How to Install
 
-- Download the [Installer Zip File](download.html)
-- Extract it
+- Download the [Latest Release](https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest) and extract it to a folder
 - In Windows:
   - Run `Visual Droids EZ Backup Windows Installer.exe`
   - If a `"Windows Protected your PC"` dialog shows up:
