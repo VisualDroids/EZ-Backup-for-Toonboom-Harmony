@@ -12,8 +12,8 @@ function fetchData(absFilePath) {
     }
     var data = readFile.readAll();
     return data;
-  } catch (err) {
-    MessageLog.trace(err);
+  } catch (error) {
+    MessageLog.trace(error);
   } finally {
     readFile.close();
   }
