@@ -17,6 +17,8 @@ function EzBackup(packageInfo, debug) {
   this.sevenZip = require(this.packageInfo.packageFolder +
     "/lib/FileArchiver/sevenzip.js").SevenZip;
 
+  this.isBackupRunning = false;
+
   // Audio Beeps
   this.beep = {
     win: new (require(this.packageInfo.packageFolder +
@@ -85,6 +87,43 @@ EzBackup.prototype.getCurrentDateTime = function () {
 
 EzBackup.prototype.backup = function () {
   try {
+    // Avoid running backup if another backup is running
+    if (this.isBackupRunning) {
+      return;
+    }
+    this.isBackupRunning = true;
+
+    this.toolbarui.zipButton.setEnabled(false);
+    this.toolbarui.success.setVisible(false);
+
+    if (scene.isDirty()) {
+      this.toolbarui.progressBar.setRange(0, 0);
+      this.toolbarui.progressBar.setVisible(true);
+
+      var dialog = new QMessageBox(this);
+      dialog.setWindowFlags(dialog.windowFlags() | Qt.WindowStaysOnTopHint);
+      dialog.text = "Save Scene?";
+      dialog.informativeText =
+        "Do you want to save the current scene before backup?\n";
+      dialog.standardButtons = new QMessageBox.StandardButtons(
+        QMessageBox.Save | QMessageBox.No | MessageBox.Cancel
+      );
+      dialog.escapeButton = undefined;
+
+      dialog.raise();
+      var answer = dialog.exec();
+
+      if (answer == QMessageBox.Save) {
+        scene.saveAll();
+      } else if (answer == QMessageBox.No) {
+      } else if (answer == QMessageBox.Cancel) {
+        this.toolbarui.zipButton.setEnabled(true);
+        this.toolbarui.progressBar.setVisible(false);
+        this.isBackupRunning = false;
+        return;
+      }
+    }
+
     var zipSource = scene.currentProjectPathRemapped().split("\\").join("/");
 
     var zipDestination = (
@@ -100,8 +139,7 @@ EzBackup.prototype.backup = function () {
 
     var processStartCallback = function () {
       try {
-        this.toolbarui.zipButton.setEnabled(false);
-        this.toolbarui.success.setVisible(false);
+        this.toolbarui.progressBar.setRange(0, 100);
         this.toolbarui.progressBar.setValue(0);
         this.toolbarui.progressBar.setVisible(true);
       } catch (error) {
@@ -133,6 +171,7 @@ EzBackup.prototype.backup = function () {
 
         this.toolbarui.zipButton.setEnabled(true);
         this.toolbarui.progressBar.setVisible(false);
+        this.isBackupRunning = false;
       } catch (error) {
         MessageLog.trace(error);
       }
@@ -150,7 +189,8 @@ EzBackup.prototype.backup = function () {
     );
     zipper.zipAsync();
   } catch (error) {
-    this.log(error);
+    MessageLog.trace(error);
+    // this.log(error);
   }
 };
 
@@ -178,20 +218,28 @@ function triggerBackupFromKeyboard() {
 
 function debugging() {
   // For quick debuging
-  var packageInfo = require("./configure.js").packageInfo;
+  // var packageInfo = require("./configure.js").packageInfo;
   MessageLog.clearLog();
-  MessageLog.trace(typeof QSoundEffect);
-  var sfx = new QSoundEffect();
+  // MessageLog.trace(typeof QSoundEffect);
+  // var sfx = new QSoundEffect();
 
-  sfx.setSource(
-    QUrl.fromLocalFile(packageInfo.packageFolder + "/sound/win.wav")
-  );
-  sfx.play();
-  MessageLog.trace(packageInfo + "/sound/win.wav");
+  // sfx.setSource(
+  //   QUrl.fromLocalFile(packageInfo.packageFolder + "/sound/win.wav")
+  // );
+  // sfx.play();
+  // MessageLog.trace(packageInfo + "/sound/win.wav");
   // var packageInfo = require("./configure.js").packageInfo;
   // var ui = new EzBackup(packageInfo, true);
   // ui.backup();
   //   ui.toolbarui.show(); // Remember to unhook commenting this.hookToolbar() in main class
+
+  try {
+  } catch (error) {
+    MessageLog.trace(error);
+  }
+  // dialog.exec;
+  // dialog.raise;
 }
+
 exports.init = init;
 // exports.EzBackup = EzBackup;

@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/visualdroids/EZ-Backup-for-Toonboom-Harmony/master/design/docs/ezbackup.png" alt="EZ Backup" width="200"></a>
+  <a href="https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"><img src="https://raw.githubusercontent.com/visualdroids/EZ-Backup-for-Toonboom-Harmony/master/design/docs/ezbackup.png" alt="Download EZ Backup" width="200"></a>
   <br>
   EZ Backup
   <br>
@@ -10,18 +10,25 @@
 
 <div align="center">
 
-[![Github Downloads (total)](https://img.shields.io/github/downloads/visualdroids/EZ-Backup-for-Toonboom-Harmony/total)](https://)
+<p align="center">
 
-<!-- <p align="center">
-  <a href="#how-to-use">English</a> •
-  <a href="#key-features">Spanish</a>
-</p> -->
+[![Github Downloads (total)](https://img.shields.io/github/downloads/VisualDroids/EZ-Backup-for-Toonboom-Harmony/total)](https://)
+
+</p>
+
+<p align="center">
+  <a href="#how-to-use">English</a>
+   •
+  <a href="./readme-spa.md">Spanish</a>
+</p>
 <p align="center">
   <a href="#key-features">Key Features</a>
    •
   <a href="#how-to-install">How To Install</a>
-   <!-- • -->
-  <!-- <a href="#how-to-use">How To Use</a> • -->
+   •
+  <a href="#how-to-use">How To Use</a>
+   •
+  <a href="#how-to-use">Discord</a>
   <!-- <a href="#download">Download</a> • -->
   <!-- <a href="#credits">Credits</a> • -->
   <!-- <a href="#related">Related</a> • -->

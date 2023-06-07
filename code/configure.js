@@ -58,12 +58,12 @@ function configure(packageFolder, packageName) {
     customizable: false,
   });
 
-  // toolbar.addButton({
-  //   text: packageInfo.packageShortName + " Debuging",
-  //   icon: "",
-  //   checkable: false,
-  //   action: "debugging in " + packageFolder + "/ezbackup.js",
-  // });
+  toolbar.addButton({
+    text: packageInfo.packageShortName + " Debuging",
+    icon: "",
+    checkable: false,
+    action: "debugging in " + packageFolder + "/ezbackup.js",
+  });
 
   ScriptManager.addToolbar(toolbar);
 
@@ -77,7 +77,7 @@ function configure(packageFolder, packageName) {
   try {
     // Create an EZ Backup instance
     var ezBackup = require(packageFolder + "/ezbackup.js").init;
-    ezBackup(packageInfo, false);
+    ezBackup(packageInfo, true);
   } catch (error) {
     MessageLog.trace(error);
   }
