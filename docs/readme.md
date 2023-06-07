@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"><img src="https://raw.githubusercontent.com/visualdroids/EZ-Backup-for-Toonboom-Harmony/master/docs/img/ezbackup.png" alt="Download EZ Backup" width="200"></a>
+  <a href="https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"><img src="https://raw.githubusercontent.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/master/docs/img/ezbackup.png" alt="Download EZ Backup" width="200"></a>
   <br>
   EZ Backup
   <br>
@@ -16,7 +16,7 @@
 
 </p>
 
-<a href="https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"><img src="https://raw.githubusercontent.com/visualdroids/EZ-Backup-for-Toonboom-Harmony/master/docs/img/windows-macos.png" alt="" width="100"></a>
+<a href="https://github.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"><img src="https://raw.githubusercontent.com/VisualDroids/EZ-Backup-for-Toonboom-Harmony/master/docs/img/windows-macos.png" alt="" width="100"></a>
 
 <p align="center">
 
@@ -53,13 +53,11 @@ It automatically generates a neatly compressed zip file that holds the entire ba
   - Run `Visual Droids EZ Backup Windows Installer.exe`
   - If a `"Windows Protected your PC"` dialog shows up:
     - Click `More Info` then `Run Anyway`
-  - Choose your Toonboom Harmony Version
-  - Click on `Install`
 - In macOS:
   - While holding `control` in your keyboard, single click `Visual Droids EZ Backup MacOS Installer.app` and click `Open`
-  - When a `"macOS cannot verify the developer..."` dialog shows up, click `Open`
-  - Choose your Toonboom Harmony Version
-  - Click on `Install`
+  - When a `"macOS cannot verify the developer..."` dialog shows up, click `Open`. If you can't find the `Open` button, try the last step again.
+- Choose your Toonboom Harmony Version
+- Click on `Install`
 
 ## How to Use
 
