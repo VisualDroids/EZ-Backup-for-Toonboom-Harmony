@@ -70,7 +70,7 @@ function configure(packageFolder, packageName) {
   try {
     // Create an updater instance
     var Updater = require(packageFolder + "/lib/Updater/updater.js").Updater;
-    new Updater(packageInfo, false);
+    new Updater(this, packageInfo, null, false);
   } catch (error) {
     MessageLog.trace(error);
   }
