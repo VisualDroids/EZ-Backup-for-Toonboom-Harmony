@@ -1,10 +1,11 @@
 {
+  "debugMode": true,
   "packagePublisher": "Visual Droids",
   "packageName": "VisualDroidsEZBackup",
   "packageShortName": "EZ Backup",
   "packageFullName": "Visual Droids EZ Backup",
   "packageID": "com.visualdroids.ezbackup",
-  "packageVersion": "23.6.6",
+  "packageVersion": "23.6.13",
   "packageRepository": "VisualDroids/EZ-Backup-for-Toonboom-Harmony",
   "packageApiURL": "https://api.github.com/repos/VisualDroids/EZ-Backup-for-Toonboom-Harmony/releases/latest"
 }

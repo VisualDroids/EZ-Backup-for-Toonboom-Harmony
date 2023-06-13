@@ -9,10 +9,8 @@ function init(packageInfo, debug) {
 }
 
 function EzBackup(packageInfo, debug) {
-  if (typeof debug === "undefined") var debug = false;
-
   this.packageInfo = packageInfo;
-  this.debug = debug;
+  this.debug = packageInfo.debug;
 
   this.sevenZip = require(this.packageInfo.packageFolder +
     "/lib/FileArchiver/sevenzip.js").SevenZip;

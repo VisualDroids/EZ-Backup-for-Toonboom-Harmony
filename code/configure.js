@@ -29,6 +29,7 @@ const packageFolder = __file__
 var vdPackage = JSON.parse(fetchData(packageFolder + "/vdpackage.json"));
 
 const packageInfo = {
+  debugMode: vdPackage.debugMode,
   packagePublisher: vdPackage.packagePublisher,
   packageName: vdPackage.packageName,
   packageShortName: vdPackage.packageShortName,
@@ -58,26 +59,32 @@ function configure(packageFolder, packageName) {
     customizable: false,
   });
 
-  toolbar.addButton({
-    text: packageInfo.packageShortName + " Debuging",
-    icon: "",
-    checkable: false,
-    action: "debugging in " + packageFolder + "/ezbackup.js",
-  });
+  if (packageInfo.debugMode) {
+    toolbar.addButton({
+      text: packageInfo.packageShortName + " Debuging",
+      icon: "",
+      checkable: false,
+      action: "debugging in " + packageFolder + "/ezbackup.js",
+    });
+  }
 
   ScriptManager.addToolbar(toolbar);
 
   try {
     // Create an updater instance
     var Updater = require(packageFolder + "/lib/Updater/updater.js").Updater;
-    new Updater(this, packageInfo, null, false);
+    new Updater(
+      (parentContext = this),
+      (packageInfo = packageInfo),
+      (onCompleteCallback = null)
+    );
   } catch (error) {
     MessageLog.trace(error);
   }
   try {
     // Create an EZ Backup instance
     var ezBackup = require(packageFolder + "/ezbackup.js").init;
-    ezBackup(packageInfo, true);
+    ezBackup(packageInfo);
   } catch (error) {
     MessageLog.trace(error);
   }
