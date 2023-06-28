@@ -24,6 +24,8 @@ jobs:
           current_date=$(date +%y.%-m.%-d)
           jsoncontents=$(jq '.packageVersion = "'"$current_date"'"' ./code/vdpackage.json)
           echo -E "${jsoncontents}" > ./code/vdpackage.json
+          jsoncontents=$(jq '.debugMode = false' ./code/vdpackage.json)
+          echo -E "${jsoncontents}" > ./code/vdpackage.json
           echo "packagePublisher=$(jq -r '.packagePublisher' ./code/vdpackage.json)" | tee --append $GITHUB_ENV
           echo "packageName=$(jq -r '.packageName' ./code/vdpackage.json)" | tee --append $GITHUB_ENV
           echo "packageShortName=$(jq -r '.packageShortName' ./code/vdpackage.json)" | tee --append $GITHUB_ENV
